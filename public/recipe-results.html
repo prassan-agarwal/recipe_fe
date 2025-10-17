@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Results - Smart Recipe Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/filters.css">
+    <link rel="stylesheet" href="css/utilities/layout.css">
+    <link rel="stylesheet" href="css/utilities/responsive.css">
+</head>
+<body>
+    <header class="header" id="header"></header>
+
+    <main class="main">
+        <div class="container">
+            <div class="results-header">
+                <h1>Recipe Results</h1>
+                <p id="resultsCount">Finding recipes...</p>
+            </div>
+
+            <div class="results-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3>Filters</h3>
+                        <button class="btn-clear" id="clearFilters">Clear All</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Cuisine</label>
+                        <select id="cuisineFilter">
+                            <option value="">All Cuisines</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Difficulty</label>
+                        <select id="difficultyFilter">
+                            <option value="">Any Difficulty</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Dietary</label>
+                        <select id="dietaryFilter">
+                            <option value="">Any Dietary</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Max Cooking Time</label>
+                        <select id="timeFilter">
+                            <option value="">Any Time</option>
+                            <option value="30">30 minutes or less</option>
+                            <option value="45">45 minutes or less</option>
+                            <option value="60">1 hour or less</option>
+                            <option value="90">1.5 hours or less</option>
+                            <option value="120">2 hours or less</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                </aside>
+
+                <!-- Results Grid -->
+                <section class="results-content">
+                    <div class="results-controls">
+                        <div class="sort-controls">
+                            <label for="sortBy">Sort by:</label>
+                            <select id="sortBy">
+                                <option value="match">Best Match</option>
+                                <option value="time">Cooking Time</option>
+                                <option value="difficulty">Difficulty</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="recipes-grid" id="recipesGrid">
+                        <!-- Recipe cards will be loaded here -->
+                    </div>
+
+                    <div class="loading-spinner hidden" id="loadingSpinner">
+                        <div class="spinner"></div>
+                        <p>Finding delicious recipes...</p>
+                    </div>
+
+                    <div class="no-results hidden" id="noResults">
+                        <h3>No recipes found</h3>
+                        <p>Try adjusting your filters or ingredients</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app/config.js"></script>
+    <script src="js/app/state.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/utils/constants.js"></script>
+    <script src="js/services/api.js"></script>
+    <script src="js/services/recipeService.js"></script>
+    <script src="js/components/header.js"></script>
+    <script src="js/components/recipeCard.js"></script>
+    <script src="js/components/filters.js"></script>
+    <script src="js/pages/recipeResults.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            HeaderComponent.init();
+            RecipeResultsPage.init();
+        });
+    </script>
+</body>
+</html>

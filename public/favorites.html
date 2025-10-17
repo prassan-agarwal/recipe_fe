@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites - Smart Recipe Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/utilities/layout.css">
+    <link rel="stylesheet" href="css/utilities/responsive.css">
+</head>
+<body>
+    <header class="header" id="header"></header>
+
+    <main class="main">
+        <div class="container">
+            <div class="favorites-header">
+                <h1>My Favorite Recipes</h1>
+                <p id="favoritesCount">Loading your favorites...</p>
+            </div>
+
+            <div class="recipes-grid" id="favoritesGrid">
+                <!-- Favorite recipes will be loaded here -->
+            </div>
+
+            <div class="no-favorites hidden" id="noFavorites">
+                <div class="empty-state">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <h3>No favorites yet</h3>
+                    <p>Start exploring recipes and add your favorites here!</p>
+                    <a href="index.html" class="btn btn-primary">Find Recipes</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app/config.js"></script>
+    <script src="js/app/state.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/utils/constants.js"></script>
+    <script src="js/services/api.js"></script>
+    <script src="js/services/recipeService.js"></script>
+    <script src="js/services/userService.js"></script>
+    <script src="js/components/header.js"></script>
+    <script src="js/components/recipeCard.js"></script>
+    <script src="js/pages/favorites.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            HeaderComponent.init();
+            FavoritesPage.init();
+        });
+    </script>
+</body>
+</html>

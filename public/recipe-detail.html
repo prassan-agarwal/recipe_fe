@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details - Smart Recipe Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/utilities/layout.css">
+    <link rel="stylesheet" href="css/utilities/responsive.css">
+</head>
+<body>
+    <header class="header" id="header"></header>
+
+    <main class="main">
+        <div class="container">
+            <div class="recipe-detail" id="recipeDetail">
+                <!-- Recipe details will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app/config.js"></script>
+    <script src="js/app/state.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/utils/constants.js"></script>
+    <script src="js/services/api.js"></script>
+    <script src="js/services/recipeService.js"></script>
+    <script src="js/services/userService.js"></script>
+    <script src="js/components/header.js"></script>
+    <script src="js/pages/recipeDetail.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            HeaderComponent.init();
+            RecipeDetailPage.init();
+        });
+    </script>
+</body>
+</html>

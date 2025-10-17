@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Recipe Generator - Find Recipes from Your Ingredients</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/utilities/layout.css">
+    <link rel="stylesheet" href="css/utilities/responsive.css">
+</head>
+<body>
+    <header class="header" id="header"></header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Smart Recipe Generator</h1>
+                    <p class="hero-subtitle">Discover delicious recipes using ingredients you already have</p>
+                    
+                    <div class="input-methods">
+                        <div class="method-tabs">
+                            <button class="tab-btn active" data-tab="text">Type Ingredients</button>
+                            <button class="tab-btn" data-tab="image">Upload Image</button>
+                        </div>
+
+                        <!-- Text Input Method -->
+                        <div class="tab-content active" id="text-tab">
+                            <form class="ingredients-form" id="textForm">
+                                <div class="form-group">
+                                    <label for="ingredients">Enter your ingredients (comma separated):</label>
+                                    <textarea 
+                                        id="ingredients" 
+                                        placeholder="e.g., chicken, rice, tomatoes, onions, garlic..."
+                                        rows="4"
+                                    ></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Find Recipes</button>
+                            </form>
+                        </div>
+
+                        <!-- Image Input Method -->
+                        <div class="tab-content" id="image-tab">
+                            <form class="image-upload-form" id="imageForm">
+                                <div class="upload-area" id="uploadArea">
+                                    <div class="upload-placeholder">
+                                        <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
+                                            <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M12 10l-1 1m1-1l1 1m-1-1v3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <p>Click to upload or drag and drop</p>
+                                        <p class="upload-hint">Supports JPG, PNG, WEBP (Max 5MB)</p>
+                                    </div>
+                                    <input type="file" id="imageInput" accept="image/*" hidden>
+                                </div>
+                                <div class="upload-preview hidden" id="uploadPreview">
+                                    <img id="previewImage" src="" alt="Preview">
+                                    <button type="button" class="btn-remove" id="removeImage">Remove</button>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="analyzeImage" disabled>Analyze Image</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Detected Ingredients -->
+                    <div class="detected-ingredients hidden" id="detectedIngredients">
+                        <h3>Detected Ingredients:</h3>
+                        <div class="ingredients-list" id="ingredientsList"></div>
+                        <button class="btn btn-secondary" id="findRecipesFromImage">Find Recipes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Recipes -->
+        <section class="featured-recipes">
+            <div class="container">
+                <h2>Featured Recipes</h2>
+                <div class="recipes-grid" id="featuredRecipes">
+                    <!-- Featured recipes will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app/config.js"></script>
+    <script src="js/app/state.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/utils/constants.js"></script>
+    <script src="js/services/api.js"></script>
+    <script src="js/services/recipeService.js"></script>
+    <script src="js/services/userService.js"></script>
+    <script src="js/components/header.js"></script>
+    <script src="js/components/recipeCard.js"></script>
+    <script src="js/components/searchForm.js"></script>
+    <script src="js/components/imageUpload.js"></script>
+    <script src="js/pages/home.js"></script>
+    <script src="js/app/router.js"></script>
+
+    <script>
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            HeaderComponent.init();
+            HomePage.init();
+            ImageUploadComponent.init();
+        });
+    </script>
+</body>
+</html>

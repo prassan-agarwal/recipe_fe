@@ -1,0 +1,29 @@
+{
+  "name": "smart-recipe-generator",
+  "version": "1.0.0",
+  "description": "AI-powered recipe generator using image recognition",
+  "main": "server.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "node server.js",
+    "seed": "node seed-database.js",
+    "build": "npm install"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "@google/generative-ai": "^0.8.0",
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "keywords": ["recipes", "ai", "image-recognition", "cooking", "gemini"],
+  "author": "Smart Recipe Team",
+  "license": "MIT"
+}
